@@ -1,0 +1,31 @@
+.section__page--register {
+  width: 460px;
+  height: calc(100vh - 200px);
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .mat__button--send {
+      display: flex;
+      justify-content: center;
+
+      button {
+        max-width: 280px;
+        height: 60px;
+      }
+    }
+  }
+
+  .return__auth {
+    margin-top: 40px;
+  }
+}

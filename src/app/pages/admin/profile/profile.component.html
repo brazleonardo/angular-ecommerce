@@ -1,0 +1,140 @@
+<section class="section__page--container">
+  <div class="grid__container">
+    <div class="grid__col">
+      <mat-card class="mat__card--profile">
+        <mat-card-header class="mat__card--profile-header">Minha Conta</mat-card-header>
+        <mat-card-content class="mat__card--profile-content">
+          <form [formGroup]="userForm">
+            <legend>Informações do usuário</legend>
+            <div class="grid__container">
+              <div class="grid__col c-2">
+                <mat-form-field class="w-full">
+                  <mat-label>Nome do usuário</mat-label>
+                  <input
+                    matInput
+                    formControlName="username"
+                    name="username"
+                    placeholder="Digite o nome para entrar na conta"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="grid__col c-3">
+                <mat-form-field class="w-full">
+                  <mat-label>E-mail</mat-label>
+                  <input
+                    matInput
+                    formControlName="email"
+                    name="email"
+                    placeholder="Digite seu e-mail"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="grid__col c-2">
+                <mat-form-field class="w-full">
+                  <mat-label>Primeiro nome</mat-label>
+                  <input
+                    matInput
+                    formControlName="firstName"
+                    name="firstName"
+                    placeholder="Digite seu primeiro nome"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="grid__col c-3">
+                <mat-form-field class="w-full">
+                  <mat-label>Sobrenome</mat-label>
+                  <input
+                    matInput
+                    formControlName="lastName"
+                    name="lastName"
+                    placeholder="Digite seu sobrenome"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+            <mat-divider class="mat__divider" />
+            <legend>Informações de contato</legend>
+            <div class="grid__container">
+              <div class="grid__col w-full">
+                <mat-form-field class="w-full">
+                  <mat-label>Endereço</mat-label>
+                  <input
+                    matInput
+                    formControlName="address"
+                    name="address"
+                    placeholder="Digite seu endereço"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="grid__col c-2">
+                <mat-form-field class="w-full">
+                  <mat-label>Cidade</mat-label>
+                  <input
+                    matInput
+                    formControlName="city"
+                    name="city"
+                    placeholder="Digite seu cidade"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="grid__col">
+                <mat-form-field class="w-full">
+                  <mat-label>Estado</mat-label>
+                  <input
+                    matInput
+                    formControlName="state"
+                    name="state"
+                    placeholder="Digite seu estado"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="grid__col">
+                <mat-form-field class="w-full">
+                  <mat-label>Código postal</mat-label>
+                  <input
+                    matInput
+                    formControlName="postalCode"
+                    name="postalCode"
+                    placeholder="Digite seu cep"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="mat__button--send">
+              <button mat-flat-button color="primary">Salvar</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="grid__col">
+      <mat-card class="mat__card--profile-details">
+        <img mat-card-image [src]="user()?.image" alt="" />
+        <mat-card-content class="mat__card--profile-content">
+          <p class="text__center">
+            <strong>{{ user()?.firstName }} {{ user()?.lastName }}</strong>, {{ user()?.age }} anos
+          </p>
+          <p class="text__center">
+            Empresa:
+            <strong>{{ user()?.company?.name }}</strong>
+          </p>
+          <p class="text__center">
+            Departamento:
+            <strong>{{ user()?.company?.department }}</strong>
+          </p>
+          <p class="text__center">
+            Cargo:
+            <strong>{{ user()?.company?.title }}</strong>
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+<h2 mat-dialog-title class="mat__modal--title">Filtro</h2>
+<mat-dialog-content class="mat__dialog--content-filter">
+  <form
+    [formGroup]="filterForm"
+    [ngClass]="{ 'form-loading': isLoading() }"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="grid__container">
+      <div class="grid__col">
+        <mat-form-field class="w-full">
+          <mat-label>Categoria</mat-label>
+          <mat-select name="category" formControlName="category">
+            @for (category of allCategories(); track category) {
+              <mat-option [value]="category">{{ category }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      @if (filterForm.valid) {
+        <div class="grid__col w-full">
+          <div class="mat__button--send">
+            <button
+              mat-flat-button
+              color="warn"
+              class="w-full"
+              type="button"
+              (click)="onClearFilter()"
+            >
+              Limpar Filtro
+            </button>
+            <button
+              mat-flat-button
+              color="primary"
+              class="w-full"
+              type="submit"
+              [disabled]="filterForm.invalid"
+            >
+              Aplicar Filtro
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </form>
+</mat-dialog-content>

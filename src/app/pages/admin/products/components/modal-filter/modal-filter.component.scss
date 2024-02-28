@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  width: 480px;
+  min-height: 300px;
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.mat__modal--title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mat__modal--subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.mat__dialog--content-filter {
+  width: 100%;
+  position: relative;
+
+  form {
+    width: 100%;
+
+    .grid__container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+    }
+
+    .mat__button--send {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+
+      button {
+        max-width: 260px;
+      }
+    }
+  }
+}

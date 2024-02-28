@@ -1,0 +1,162 @@
+<section class="section__page--container">
+  @if (products$ | async) {
+    <header class="section__header">
+      <div class="section__header--group">
+        <h1 class="section__page--title">Produtos</h1>
+        <button mat-icon-button aria-label="Abre mais opções" [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onDetails()">Adicionar novo produto</button>
+        </mat-menu>
+      </div>
+
+      <mat-paginator
+        class="mat__paginator--table"
+        [pageSizeOptions]="pageSizeOptions"
+        [length]="pageLength()"
+        [pageSize]="pageSize()"
+        [pageIndex]="pageIndex()"
+        (page)="handlePageEvent($event)"
+        showFirstLastButtons
+        itemsPerPageLabel="Produtos por página"
+        aria-label="Selecione a página"
+      ></mat-paginator>
+    </header>
+
+    <table
+      mat-table
+      #table
+      [dataSource]="dataSource"
+      id="table1"
+      class="mat__table--products mat-elevation-z8"
+      aria-describedby="Tabela de listagem de produtos"
+    >
+      <!-- Position Column -->
+      <ng-container matColumnDef="pos">
+        <th mat-header-cell *matHeaderCellDef>Índice.</th>
+        <td
+          mat-cell
+          *matCellDef="let element; let i = index"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          {{ skip() + i + 1 }}
+        </td>
+      </ng-container>
+
+      <!-- Thumbnail Column -->
+      <ng-container matColumnDef="thumbnail">
+        <th mat-header-cell *matHeaderCellDef>Foto</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          <img [src]="element.thumbnail" [alt]="element.title" class="mat__table--thumbnail" />
+        </td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Título</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          {{ element.title }}
+        </td>
+      </ng-container>
+
+      <!-- Price Stock -->
+      <ng-container matColumnDef="stock">
+        <th mat-header-cell *matHeaderCellDef>Estoque</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          <strong
+            class="products__in--stock"
+            [ngClass]="{
+              low__stock: element.stock < 60,
+              critical__stock: element.stock < 50,
+              positive__stock: element.stock > 110
+            }"
+          >
+            {{ element.stock }}
+          </strong>
+        </td>
+      </ng-container>
+
+      <!-- Brand Column -->
+      <ng-container matColumnDef="brand">
+        <th mat-header-cell *matHeaderCellDef>Marca</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          {{ element.brand }}
+        </td>
+      </ng-container>
+
+      <!-- Category Column -->
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Categoria</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          {{ element.category }}
+        </td>
+      </ng-container>
+
+      <!-- Price Column -->
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Preço</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="onDetails(element)"
+          class="mat__td--event-click"
+          matRipple
+        >
+          {{ formatter(element.price) }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mat__table--head-tr"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns" class="mat__table--body-tr"></tr>
+    </table>
+
+    @if (limit() !== 5) {
+      <footer class="section__footer">
+        <mat-paginator
+          class="mat__paginator--table"
+          [pageSizeOptions]="pageSizeOptions"
+          [length]="pageLength()"
+          [pageSize]="pageSize()"
+          [pageIndex]="pageIndex()"
+          (page)="handlePageEvent($event)"
+          showFirstLastButtons
+          itemsPerPageLabel="Produtos por página"
+          aria-label="Selecione a página"
+        ></mat-paginator>
+      </footer>
+    }
+  }
+</section>

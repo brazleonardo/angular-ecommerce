@@ -1,0 +1,25 @@
+.section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat__table--categories {
+  width: 100%;
+
+  .mat__table--head-tr {
+    background-color: #eeee;
+  }
+
+  .mat__table--body-tr {
+    td {
+      &.mat__td--event-click {
+        cursor: pointer;
+      }
+    }
+
+    &:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  }
+}

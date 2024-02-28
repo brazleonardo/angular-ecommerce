@@ -1,0 +1,60 @@
+<mat-toolbar color="primary" class="mat__main--nav">
+  <div class="mat__group--logo">
+    <button mat-icon-button aria-label="Menu" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Auth</span>
+  </div>
+
+  @if (hasFilter) {
+    <div class="mat__search--input">
+      @if (hasFilter.search) {
+        <label for="main__search">
+          <mat-icon matSuffix class="mat__icon--search">search</mat-icon>
+          <input
+            type="text"
+            id="main__search"
+            placeholder="Buscar"
+            required
+            [formControl]="searchForm"
+            [ngClass]="{ 'has__filter--options': hasFilter.options }"
+          />
+          <span class="bg__search"></span>
+          <span class="inner__wrap--search"></span>
+        </label>
+      } @else {
+        <span class="mat__search--text-label">Filtro</span>
+      }
+      @if (hasFilter.options) {
+        <button
+          mat-icon-button
+          type="button"
+          class="mat__btn--options"
+          aria-label="Abrir mais opções"
+          (click)="onOpenModalFilter()"
+        >
+          <mat-icon matSuffix class="mat__icon--filter">tune</mat-icon>
+        </button>
+      }
+    </div>
+  }
+
+  <div class="mat__menu-content">
+    <button mat-icon-button aria-label="Configurações">
+      <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="Sair da aplicação" (click)="onLogout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<mat-drawer-container class="mat__drawer--container">
+  <mat-drawer #drawer opened mode="side" class="mat__drawer--menu">
+    <app-drawer />
+  </mat-drawer>
+  <mat-drawer-content>
+    <main class="app__main">
+      <router-outlet />
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>
