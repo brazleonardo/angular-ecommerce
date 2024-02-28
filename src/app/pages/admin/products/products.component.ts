@@ -112,8 +112,8 @@ export default class ProductsComponent implements OnInit, AfterViewInit, OnDestr
     }
     this.getUser()
     this.activatedRoute.queryParamMap.subscribe((params) => {
-      const paramLimit = params.get('limit')
-      const paramSkip = params.get('skip')
+      const paramLimit = params.get('limit') ?? 15
+      const paramSkip = params.get('skip') ?? 0
       if (paramLimit && this.pageSizeOptions.includes(Number(paramLimit))) {
         this.limit.set(Number(paramLimit))
         this.pageSize.set(Number(paramLimit))
