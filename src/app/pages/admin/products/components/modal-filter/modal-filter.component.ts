@@ -39,6 +39,7 @@ export class ModalFilterComponent implements OnInit {
   private router = inject(Router)
   private dialogModal = inject(MatDialog)
   private filterAdminService = inject(FilterAdminService)
+  protected searchForm = this.filterAdminService.searchForm
   protected categoryService = inject(CategoryService)
   protected filterForm = new FormGroup({
     category: new FormControl('', [Validators.required]),
@@ -72,12 +73,13 @@ export class ModalFilterComponent implements OnInit {
     this.router.navigate([])
 
     this.dialogModal.closeAll()
+    this.searchForm.setValue('')
     this.filterAdminService.setOpenModal = false
   }
 
   onSubmit() {
     if (this.filterForm.valid) {
-      const queryParams = { category: this.filterForm.value.category }
+      const queryParams = { search: '', category: this.filterForm.value.category }
       this.router.navigate([], {
         relativeTo: this.activatedRoute,
         queryParams: queryParams,

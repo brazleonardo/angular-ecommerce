@@ -77,10 +77,27 @@ export default class ProductsComponent implements OnInit, AfterViewInit, OnDestr
 
   protected products$ = this.activatedRoute.queryParamMap.pipe(
     map((value) => {
-      const limit = value.get('limit') ?? 15
-      const skip = value.get('skip') ?? 0
       const search = value.get('search') ?? ''
       const category = value.get('category') ?? ''
+      let limit = value.get('limit') ?? 15
+      let skip = value.get('skip') ?? 0
+
+      if (search || category) {
+        limit = 15
+        skip = 0
+
+        const queryParams = {
+          limit,
+          skip,
+        }
+
+        this.router.navigate([], {
+          relativeTo: this.activatedRoute,
+          queryParams: queryParams,
+          queryParamsHandling: 'merge',
+        })
+      }
+
       return { limit, skip, search, category }
     }),
     switchMap((params) => {
