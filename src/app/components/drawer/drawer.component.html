@@ -18,5 +18,17 @@
         Categorias
       </a>
     </mat-list-item>
+    <mat-list-item role="listitem" class="mat__drawer--list-item">
+      <a>
+        <mat-icon>settings</mat-icon>
+        Configurações
+      </a>
+    </mat-list-item>
+    <mat-list-item role="listitem" class="mat__drawer--list-item" (click)="onLogout()">
+      <a>
+        <mat-icon>logout</mat-icon>
+        Sair
+      </a>
+    </mat-list-item>
   </mat-list>
 </div>
