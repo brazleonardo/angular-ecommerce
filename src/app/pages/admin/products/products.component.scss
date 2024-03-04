@@ -3,14 +3,17 @@
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
   .section__header--group {
     display: flex;
     align-items: center;
     gap: 5px;
-  }
-
-  .mat__paginator--table {
-    background-color: transparent;
   }
 }
 

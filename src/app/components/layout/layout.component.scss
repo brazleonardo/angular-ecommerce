@@ -7,11 +7,20 @@
   left: 0;
   z-index: 100;
 
-  .mat__group--logo,
+  .mat__group--logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .mat__menu-content {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 540px) {
+      display: none;
+    }
   }
 
   .mat__search--input {
@@ -54,6 +63,10 @@
         &:valid + .bg__search + .inner__wrap--search,
         &:focus + .bg__search + .inner__wrap--search {
           width: 350px;
+
+          @media (max-width: 540px) {
+            width: 160px;
+          }
         }
       }
     }
@@ -85,6 +98,10 @@
       content: '';
       transition: all 0.4s ease-in-out;
       visibility: hidden;
+
+      @media (max-width: 540px) {
+        width: 160px;
+      }
     }
 
     .mat__btn--options {

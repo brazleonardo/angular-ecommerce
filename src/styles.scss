@@ -101,3 +101,51 @@ form {
     }
   }
 }
+
+.mat__table--container {
+  width: 100%;
+
+  @media (max-width: 540px) {
+    overflow-x: auto;
+  }
+}
+
+.mat__paginator--table {
+  background-color: transparent;
+
+  @media (max-width: 768px) {
+    & > .mat-mdc-paginator-outer-container {
+      & > .mat-mdc-paginator-container {
+        justify-content: flex-start;
+        padding: 15px;
+
+        & > .mat-mdc-paginator-page-size {
+          & > .mat-mdc-paginator-page-size-label {
+            padding-left: 0;
+          }
+        }
+
+        & > .mat-mdc-paginator-range-actions {
+          flex-wrap: wrap;
+
+          & > .mat-mdc-paginator-range-label {
+            padding: 0;
+            margin: 0 10px 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    & > .mat-mdc-paginator-outer-container {
+      & > .mat-mdc-paginator-container {
+        & > .mat-mdc-paginator-range-actions {
+          & > .mat-mdc-paginator-range-label {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

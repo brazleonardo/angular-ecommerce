@@ -1,29 +1,30 @@
 <section class="section__page--container">
   @if (products$ | async) {
-    <header class="section__header">
-      <div class="section__header--group">
-        <h1 class="section__page--title">Produtos</h1>
-        <button mat-icon-button aria-label="Abre mais opções" [matMenuTriggerFor]="menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="onDetails()">Adicionar novo produto</button>
-        </mat-menu>
-      </div>
+  <header class="section__header">
+    <div class="section__header--group">
+      <h1 class="section__page--title">Produtos</h1>
+      <button mat-icon-button aria-label="Abre mais opções" [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="onDetails()">Adicionar novo produto</button>
+      </mat-menu>
+    </div>
 
-      <mat-paginator
-        class="mat__paginator--table"
-        [pageSizeOptions]="pageSizeOptions"
-        [length]="pageLength()"
-        [pageSize]="pageSize()"
-        [pageIndex]="pageIndex()"
-        (page)="handlePageEvent($event)"
-        showFirstLastButtons
-        itemsPerPageLabel="Produtos por página"
-        aria-label="Selecione a página"
-      ></mat-paginator>
-    </header>
+    <mat-paginator
+      class="mat__paginator--table"
+      [pageSizeOptions]="pageSizeOptions"
+      [length]="pageLength()"
+      [pageSize]="pageSize()"
+      [pageIndex]="pageIndex()"
+      (page)="handlePageEvent($event)"
+      showFirstLastButtons
+      itemsPerPageLabel="Produtos por página"
+      aria-label="Selecione a página"
+    ></mat-paginator>
+  </header>
 
+  <div class="mat__table--container">
     <table
       mat-table
       #table
@@ -142,21 +143,21 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns" class="mat__table--head-tr"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns" class="mat__table--body-tr"></tr>
     </table>
+  </div>
 
-    @if (limit() !== 5) {
-      <footer class="section__footer">
-        <mat-paginator
-          class="mat__paginator--table"
-          [pageSizeOptions]="pageSizeOptions"
-          [length]="pageLength()"
-          [pageSize]="pageSize()"
-          [pageIndex]="pageIndex()"
-          (page)="handlePageEvent($event)"
-          showFirstLastButtons
-          itemsPerPageLabel="Produtos por página"
-          aria-label="Selecione a página"
-        ></mat-paginator>
-      </footer>
-    }
-  }
+  @if (limit() !== 5) {
+  <footer class="section__footer">
+    <mat-paginator
+      class="mat__paginator--table"
+      [pageSizeOptions]="pageSizeOptions"
+      [length]="pageLength()"
+      [pageSize]="pageSize()"
+      [pageIndex]="pageIndex()"
+      (page)="handlePageEvent($event)"
+      showFirstLastButtons
+      itemsPerPageLabel="Produtos por página"
+      aria-label="Selecione a página"
+    ></mat-paginator>
+  </footer>
+  } }
 </section>
