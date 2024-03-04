@@ -11,6 +11,10 @@
   top: 0;
   right: 0;
   background-color: #fff;
+
+  @media (max-width: 900px) {
+    width: calc(100% - 30px);
+  }
 }
 
 .mat__modal--title {
@@ -37,8 +41,16 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 10px;
 
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+
       .grid__col.w-full {
         grid-column: 1/3;
+
+        @media (max-width: 768px) {
+          grid-column: 1/1;
+        }
       }
     }
 
