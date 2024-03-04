@@ -117,11 +117,11 @@ form {
     & > .mat-mdc-paginator-outer-container {
       & > .mat-mdc-paginator-container {
         justify-content: flex-start;
-        padding: 15px;
+        padding: 0;
 
         & > .mat-mdc-paginator-page-size {
           & > .mat-mdc-paginator-page-size-label {
-            padding-left: 0;
+            margin-left: 0;
           }
         }
 
@@ -129,7 +129,6 @@ form {
           flex-wrap: wrap;
 
           & > .mat-mdc-paginator-range-label {
-            padding: 0;
             margin: 0 10px 0 0;
           }
         }
