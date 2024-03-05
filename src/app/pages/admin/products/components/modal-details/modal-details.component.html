@@ -37,7 +37,7 @@
           <mat-label>Categoria</mat-label>
           <mat-select name="category" formControlName="category">
             @for (category of allCategories(); track category) {
-              <mat-option [value]="category">{{ category }}</mat-option>
+            <mat-option [value]="category">{{ category }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
@@ -100,18 +100,18 @@
       </div>
 
       @if (data.product?.images) {
-        <div class="grid__col w-full">
-          <div class="wrap">
-            <h3 class="mat__modal--subtitle">Fotos</h3>
-            <ul class="list__thumbnail">
-              @for (image of data.product?.images; track image) {
-                <li>
-                  <img [src]="image" class="thumbnail__image" alt="" />
-                </li>
-              }
-            </ul>
-          </div>
+      <div class="grid__col w-full">
+        <div class="wrap">
+          <h3 class="mat__modal--subtitle">Fotos</h3>
+          <ul class="list__thumbnail">
+            @for (image of data.product?.images; track image) {
+            <li>
+              <img [src]="image" class="thumbnail__image" alt="" />
+            </li>
+            }
+          </ul>
         </div>
+      </div>
       }
 
       <div class="grid__col w-full">
