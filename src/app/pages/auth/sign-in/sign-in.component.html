@@ -16,6 +16,7 @@
         formControlName="password"
       />
       <button
+        type="button"
         mat-icon-button
         matSuffix
         (click)="hide = !hide"
@@ -28,10 +29,10 @@
 
     <div class="mat__button--send">
       <button
+        type="submit"
         mat-flat-button
         color="primary"
         class="w-full"
-        type="submit"
         [disabled]="!loginForm.valid"
       >
         Entrar

@@ -15,6 +15,7 @@
       <mat-label>Senha</mat-label>
       <input matInput [type]="hide ? 'password' : 'text'" placeholder="Digite sua senha" />
       <button
+        type="button"
         mat-icon-button
         matSuffix
         (click)="hide = !hide"
@@ -26,7 +27,7 @@
     </mat-form-field>
 
     <div class="mat__button--send">
-      <button mat-flat-button color="primary" class="w-full">Salvar</button>
+      <button type="submit" mat-flat-button color="primary" class="w-full">Salvar</button>
     </div>
   </form>
 
