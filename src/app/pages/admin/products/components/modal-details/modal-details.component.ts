@@ -19,6 +19,7 @@ import { formatPrice } from '@@helpers/price.helper'
 
 import { CategoryService } from '@@services/category.service'
 import { Product } from '@@models/product.models'
+import { Category } from '@@models/category.models'
 
 export interface DialogData {
   title: string
@@ -46,7 +47,7 @@ export interface DialogData {
 })
 export class ModalDetailsComponent implements OnInit {
   isLoading = signal(false)
-  allCategories = signal<string[]>([])
+  allCategories = signal<Category[]>([])
   protected categoryService = inject(CategoryService)
   protected productForm!: FormGroup
 

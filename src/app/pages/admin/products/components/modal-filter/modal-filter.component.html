@@ -11,35 +11,35 @@
           <mat-label>Categoria</mat-label>
           <mat-select name="category" formControlName="category">
             @for (category of allCategories(); track category) {
-              <mat-option [value]="category">{{ category }}</mat-option>
+            <mat-option [value]="category.name">{{ category.name }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
       </div>
 
       @if (filterForm.valid) {
-        <div class="grid__col w-full">
-          <div class="mat__button--send">
-            <button
-              mat-flat-button
-              color="warn"
-              class="w-full"
-              type="button"
-              (click)="onClearFilter()"
-            >
-              Limpar Filtro
-            </button>
-            <button
-              mat-flat-button
-              color="primary"
-              class="w-full"
-              type="submit"
-              [disabled]="filterForm.invalid"
-            >
-              Aplicar Filtro
-            </button>
-          </div>
+      <div class="grid__col w-full">
+        <div class="mat__button--send">
+          <button
+            mat-flat-button
+            color="warn"
+            class="w-full"
+            type="button"
+            (click)="onClearFilter()"
+          >
+            Limpar Filtro
+          </button>
+          <button
+            mat-flat-button
+            color="primary"
+            class="w-full"
+            type="submit"
+            [disabled]="filterForm.invalid"
+          >
+            Aplicar Filtro
+          </button>
         </div>
+      </div>
       }
     </div>
   </form>

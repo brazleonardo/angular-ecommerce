@@ -40,8 +40,8 @@ export class SignInComponent {
   protected localStorage = inject(LocalStorageService)
 
   protected loginForm = new FormGroup({
-    username: new FormControl('kminchelle', [Validators.required]),
-    password: new FormControl('0lelplR', [Validators.required, Validators.minLength(6)]),
+    username: new FormControl('emilys', [Validators.required]),
+    password: new FormControl('emilyspass', [Validators.required, Validators.minLength(6)]),
   })
 
   onSubmit() {

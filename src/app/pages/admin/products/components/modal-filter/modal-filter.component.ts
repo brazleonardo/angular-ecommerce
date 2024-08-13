@@ -16,6 +16,8 @@ import { MatButtonModule } from '@angular/material/button'
 import { CategoryService } from '@@services/category.service'
 import { FilterAdminService } from '@@services/filter-admin.service'
 
+import { Category } from '@@models/category.models'
+
 @Component({
   selector: 'app-modal-filter',
   standalone: true,
@@ -34,7 +36,7 @@ import { FilterAdminService } from '@@services/filter-admin.service'
 })
 export class ModalFilterComponent implements OnInit {
   isLoading = signal(false)
-  allCategories = signal<string[]>([])
+  allCategories = signal<Category[]>([])
   private activatedRoute = inject(ActivatedRoute)
   private router = inject(Router)
   private dialogModal = inject(MatDialog)
@@ -65,6 +67,7 @@ export class ModalFilterComponent implements OnInit {
       next: (result) => {
         this.allCategories.set(result)
         this.getQueryParam()
+        console.log(result)
       },
     })
   }
