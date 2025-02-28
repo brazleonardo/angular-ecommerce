@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "buildgithub": "ng build --output-path docs --base-href /angular-ecommerce/"
   },
   "private": true,
   "dependencies": {

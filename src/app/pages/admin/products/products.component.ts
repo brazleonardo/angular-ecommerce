@@ -39,8 +39,6 @@ import { Product, DataProducts } from '@@models/product.models'
     MatIconModule,
     MatMenuModule,
     MatRippleModule,
-    ModalFilterComponent,
-    ModalDetailsComponent,
   ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
