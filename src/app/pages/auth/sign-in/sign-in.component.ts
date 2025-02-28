@@ -51,7 +51,7 @@ export class SignInComponent {
       this.authService.signIn(username!, password!).subscribe({
         next: (response) => {
           this.authService.setIsAutheticate = true
-          this.localStorage.set(`${environment.appName}_token`, response.token)
+          this.localStorage.set(`${environment.appName}_token`, response.accessToken)
           this.isLoading.set(false)
           this.router.navigateByUrl('/admin/products')
         },
